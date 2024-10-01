@@ -7,8 +7,7 @@ def encode_image(image_file):
     return base64.b64encode(image_file.getvalue()).decode("utf-8")
 
 st.set_page_config(page_title="Analisis de imagen", layout="centered", initial_sidebar_state="collapsed")
-st.title("Análisis de Imagen:🤖🏞️")
-st.image("analisis.png", caption="Análisis de Imagen", use_column_width=True)
+st.image("analisis.png", caption="Análisis de Imagen", use_column_width=True, width=800)
 
 ke = st.text_input('Ingresa tu Clave')
 os.environ['OPENAI_API_KEY'] = ke
