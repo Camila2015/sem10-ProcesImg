@@ -17,17 +17,17 @@ if ready_to_start == "Sí":
     st.markdown(
         """
         <div style='position: relative; height: 400px; overflow: hidden;'>
-            <div class='falling-flowers'>
-                <span style='font-size: 30px;'>🌸</span>
-                <span style='font-size: 30px;'>🌷</span>
-                <span style='font-size: 30px;'>🌼</span>
-                <span style='font-size: 30px;'>🌻</span>
-                <span style='font-size: 30px;'>🌺</span>
-                <span style='font-size: 30px;'>🌸</span>
-                <span style='font-size: 30px;'>🌷</span>
-                <span style='font-size: 30px;'>🌼</span>
-                <span style='font-size: 30px;'>🌻</span>
-                <span style='font-size: 30px;'>🌺</span>
+            <div class='falling-balloons'>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
+                <span style='font-size: 30px;'>🎈</span>
             </div>
         </div>
         <style>
@@ -35,26 +35,26 @@ if ready_to_start == "Sí":
                 0% { top: -100%; }
                 100% { top: 100%; }
             }
-            .falling-flowers {
+            .falling-balloons {
                 position: absolute;
                 animation: fall 5s linear infinite;
             }
-            .falling-flowers span {
+            .falling-balloons span {
                 position: absolute;
                 animation: fall 5s linear infinite;
                 opacity: 0;
             }
-            /* Animar diferentes flores en diferentes tiempos */
-            .falling-flowers span:nth-child(1) { left: 10%; animation-delay: 0s; }
-            .falling-flowers span:nth-child(2) { left: 20%; animation-delay: 1s; }
-            .falling-flowers span:nth-child(3) { left: 30%; animation-delay: 2s; }
-            .falling-flowers span:nth-child(4) { left: 40%; animation-delay: 3s; }
-            .falling-flowers span:nth-child(5) { left: 50%; animation-delay: 4s; }
-            .falling-flowers span:nth-child(6) { left: 60%; animation-delay: 0s; }
-            .falling-flowers span:nth-child(7) { left: 70%; animation-delay: 1s; }
-            .falling-flowers span:nth-child(8) { left: 80%; animation-delay: 2s; }
-            .falling-flowers span:nth-child(9) { left: 90%; animation-delay: 3s; }
-            .falling-flowers span:nth-child(10) { left: 50%; animation-delay: 4s; }
+            /* Animar diferentes globos en diferentes tiempos */
+            .falling-balloons span:nth-child(1) { left: 10%; animation-delay: 0s; }
+            .falling-balloons span:nth-child(2) { left: 20%; animation-delay: 1s; }
+            .falling-balloons span:nth-child(3) { left: 30%; animation-delay: 2s; }
+            .falling-balloons span:nth-child(4) { left: 40%; animation-delay: 3s; }
+            .falling-balloons span:nth-child(5) { left: 50%; animation-delay: 4s; }
+            .falling-balloons span:nth-child(6) { left: 60%; animation-delay: 0s; }
+            .falling-balloons span:nth-child(7) { left: 70%; animation-delay: 1s; }
+            .falling-balloons span:nth-child(8) { left: 80%; animation-delay: 2s; }
+            .falling-balloons span:nth-child(9) { left: 90%; animation-delay: 3s; }
+            .falling-balloons span:nth-child(10) { left: 50%; animation-delay: 4s; }
         </style>
         """, unsafe_allow_html=True
     )
@@ -67,10 +67,10 @@ os.environ['OPENAI_API_KEY'] = ke
 api_key = os.environ['OPENAI_API_KEY']
 client = OpenAI(api_key=api_key)
 
-uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("Sube una imagen", type=["jpg", "png", "jpeg"])
 
 if uploaded_file:
-    with st.expander("Image", expanded=True):
+    with st.expander("Imagen", expanded=True):
         st.image(uploaded_file, caption=uploaded_file.name, use_column_width=True)
 
 show_details = st.toggle("Adiciona detalles sobre la imagen", value=False)
@@ -121,8 +121,9 @@ if uploaded_file is not None and api_key and analyze_button:
             st.error(f"An error occurred: {e}")
 else:
     if not uploaded_file and analyze_button:
-        st.warning("Please upload an image.")
+        st.warning("Por favor sube una imagen.")
     if not api_key:
         st.warning("Por favor ingresa tu API key.")
+
 
 
