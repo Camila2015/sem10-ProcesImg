@@ -13,9 +13,41 @@ st.title("Análisis de Imagen:🤖🏞️")
 ready_to_start = st.radio("¿Estás listo para empezar?", ("Sí", "No"))
 
 if ready_to_start == "Sí":
-    st.markdown("<h2 style='text-align: center;'>🌼🌼 Flores 🌼🌼</h2>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: center;'><img src='https://images.unsplash.com/photo-1542831371-1b8c59f36e5e' width='300'></div>", unsafe_allow_html=True)
     st.markdown("<style>body { background-color: yellow; }</style>", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div style='position: relative; height: 400px; overflow: hidden;'>
+            <div class='falling-flowers'>
+                <span style='font-size: 30px;'>🌸</span>
+                <span style='font-size: 30px;'>🌷</span>
+                <span style='font-size: 30px;'>🌼</span>
+                <span style='font-size: 30px;'>🌻</span>
+                <span style='font-size: 30px;'>🌺</span>
+            </div>
+        </div>
+        <style>
+            @keyframes fall {
+                0% { top: -100%; }
+                100% { top: 100%; }
+            }
+            .falling-flowers {
+                position: absolute;
+                animation: fall 5s linear infinite;
+            }
+            .falling-flowers span {
+                position: absolute;
+                animation: fall 5s linear infinite;
+                opacity: 0;
+            }
+            /* Animar diferentes flores en diferentes tiempos */
+            .falling-flowers span:nth-child(1) { left: 10%; animation-delay: 0s; }
+            .falling-flowers span:nth-child(2) { left: 30%; animation-delay: 1s; }
+            .falling-flowers span:nth-child(3) { left: 50%; animation-delay: 2s; }
+            .falling-flowers span:nth-child(4) { left: 70%; animation-delay: 3s; }
+            .falling-flowers span:nth-child(5) { left: 90%; animation-delay: 4s; }
+        </style>
+        """, unsafe_allow_html=True
+    )
 elif ready_to_start == "No":
     st.warning("¡No te preocupes! Puedes regresar cuando estés listo.")
 
@@ -82,3 +114,4 @@ else:
         st.warning("Please upload an image.")
     if not api_key:
         st.warning("Por favor ingresa tu API key.")
+
