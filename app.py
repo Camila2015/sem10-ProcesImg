@@ -23,6 +23,11 @@ if ready_to_start == "Sí":
                 <span style='font-size: 30px;'>🌼</span>
                 <span style='font-size: 30px;'>🌻</span>
                 <span style='font-size: 30px;'>🌺</span>
+                <span style='font-size: 30px;'>🌸</span>
+                <span style='font-size: 30px;'>🌷</span>
+                <span style='font-size: 30px;'>🌼</span>
+                <span style='font-size: 30px;'>🌻</span>
+                <span style='font-size: 30px;'>🌺</span>
             </div>
         </div>
         <style>
@@ -41,10 +46,15 @@ if ready_to_start == "Sí":
             }
             /* Animar diferentes flores en diferentes tiempos */
             .falling-flowers span:nth-child(1) { left: 10%; animation-delay: 0s; }
-            .falling-flowers span:nth-child(2) { left: 30%; animation-delay: 1s; }
-            .falling-flowers span:nth-child(3) { left: 50%; animation-delay: 2s; }
-            .falling-flowers span:nth-child(4) { left: 70%; animation-delay: 3s; }
-            .falling-flowers span:nth-child(5) { left: 90%; animation-delay: 4s; }
+            .falling-flowers span:nth-child(2) { left: 20%; animation-delay: 1s; }
+            .falling-flowers span:nth-child(3) { left: 30%; animation-delay: 2s; }
+            .falling-flowers span:nth-child(4) { left: 40%; animation-delay: 3s; }
+            .falling-flowers span:nth-child(5) { left: 50%; animation-delay: 4s; }
+            .falling-flowers span:nth-child(6) { left: 60%; animation-delay: 0s; }
+            .falling-flowers span:nth-child(7) { left: 70%; animation-delay: 1s; }
+            .falling-flowers span:nth-child(8) { left: 80%; animation-delay: 2s; }
+            .falling-flowers span:nth-child(9) { left: 90%; animation-delay: 3s; }
+            .falling-flowers span:nth-child(10) { left: 50%; animation-delay: 4s; }
         </style>
         """, unsafe_allow_html=True
     )
@@ -114,4 +124,5 @@ else:
         st.warning("Please upload an image.")
     if not api_key:
         st.warning("Por favor ingresa tu API key.")
+
 
